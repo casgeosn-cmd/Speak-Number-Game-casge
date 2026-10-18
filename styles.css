@@ -1,15 +1,24 @@
 *, 
-::before 
+::before, 
 ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+.top {
+            position:top;
+            top:auto;
+            border: 2px;
+            border-radius: 20%;
+
+        }
+   
 /* GENERAL STYLES.CSS */
 /* SPLIT SCREEN CSS FROM W3 SCHOOLS https://www.w3schools.com/howto/howto_css_split_screen.asp */
         /* Split the screen in half */
         .split {
-        height: 100%;
+        height: 80%;
         width: 50%;
         position: fixed;
         z-index: 1;
@@ -17,14 +26,8 @@
         overflow-x: hidden;
         padding-top: 20px;
         }
-/* 
-        .top {
-            position:top;
-            top:auto;
-            border: 2px;
-            border-radius: 20%;
 
-        } */
+        
 
 
 
@@ -54,7 +57,7 @@
         margin: 0;
         }
 
-    h1, h2, h3, p {
+    h1, h2, h3 {
         margin: 5px;
 
         }
@@ -82,8 +85,20 @@
         background-color: #f4f4f4;
         border-radius: 5px;
         margin-top: 10px;
-    }
+     }
 
+    .msg {
+        font-size: 1.5em;
+        margin-top: 40px;
+     }
+
+    .box {
+        border: 1px solid #dedede;
+        display: inline-block;
+        font-size: 30px;
+        margin: 20px;
+        padding: 10px;
+    }
 
 
 /* Typing Game STYLES.CSS */
@@ -102,21 +117,57 @@
         overflow: hidden;
         margin: 0;
         }
-
+    .quote {
+        box-sizing: border-box;
+        border-radius: 2px;
+        width: 100%;
+        margin: 2px;
+        padding: 6px;
+        background-color: #393120;
+    }
    .highlight {
-    background-color: yellow;
+     background-color: #605a4c;
+     margin: 0px;
+     padding: 1px;
+     border-radius: 3px;
         }
 
-    .error {
-background-color: lightcoral;
-border:red; 
-border-style: dashed;
+     .error {
+    background-color: lightcoral;
+    border:rgb(92, 27, 27); 
+    border-style: solid;
         }    
-    input {
-        margin: 5px;
-        border: black;
-        border-radius: 10px;
-        border-top: 10px;
+    
+    input[type=text] {
+        display: fixed;
+        padding: 8px;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        box-sizing: border-box;
         font-size: medium;
-        
+        width: 100%;
+     }
+    input[type=text]:focus {
+        background-color: #dad5d5;
+        border: 2px solid #917f7f;
     }
+
+    button {
+        font-size: 16px;
+        padding: 5px 8px;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        display: inline-block;
+        transition-duration: 0.2s;
+    }
+    button:hover {
+        background-color:antiquewhite;
+        border: 3px solid #917f7f;
+    }
+
+
+  
+

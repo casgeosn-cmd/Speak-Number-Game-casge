@@ -4,14 +4,14 @@ const msgEl = document.getElementById('msg');
 
 // generate random number between 1 and 100
 function getRandomNumber() {
-    return Math.floor(Math.random() * 100) + 1;
+    return Math.floor(Math.random() * 10) + 1;
 }
 
 const randomNum = getRandomNumber();
 console.log(randomNum);
 
 window.SpeechRecognition = 
-window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
+window.SpeechRecognition || window.webkitSpeechRecognition;
 
 const recognition = new window.SpeechRecognition();
 // start recognition and game
@@ -33,14 +33,15 @@ recognition.addEventListener('result', onSpeak);
 
 // See in the DOM what the user has spoken
 function writeMessage(msg) {
+    msgEl.innerHTML = '';
     const div = document.createElement('div');
     div.textContent = 'You said: ';
     const span = document.createElement('span');
     span.classList.add('box');
     span.textContent = msg;
     msgEl.appendChild(div, span);
-
 }
+
 
 // check msg against secret number
 function checkNumber(msg) {
@@ -64,9 +65,11 @@ function checkNumber(msg) {
         num = 8;
     } else if (msg === 'nine') {
         num = 9;
-  }
+    } else if (msg === 'ten') {
+        num = 10;
+    }
 
-  } // convert to number after adjustments
+   // convert to number after adjustments
  
     // check if msg is a valid number
 
@@ -75,8 +78,8 @@ function checkNumber(msg) {
         const div = document.createElement('div');
         div.textContent = 'That is not a valid number';
         msgEl.innerHTML = '';
-        msgEl.appendChild(div);
-        
+        msgEl.append(div);
+        return;
     }
 // edge cases
     if (msg === 'one' || msg === 'won') {
@@ -87,17 +90,17 @@ function checkNumber(msg) {
 
 
     // check if number is in range
-    if (num < 1 || num > 100) {const div = document.createElement('div');
-        div.textContent = 'Number must be between 1 and 100';
-        msgEl.appendChild(div);
-        
+    if (num < 1 || num > 10) {const div = document.createElement('div');
+        div.textContent = 'Number must be between 1 and 10';
+        msgEl.append(div);
+        return;
     }
 
     // check number and provide feedback 
     if (num === randomNum) {
        
         const h2 = document.createElement('h2');
-        h2.textContent = `Congrats! You have guessed the number! It waws ${num}`;
+        h2.textContent = `Congrats! You have guessed the number! It was ${num}`;
 
         const button = document.createElement('button');
         button.classList.add('play-again');
@@ -110,7 +113,7 @@ function checkNumber(msg) {
         // clear out innerHTML of msgEl
         msgEl.innerHTML = '';
         msgEl.append(h2, button);
-
+        return;
     }
 
     else if (num > randomNum) {
@@ -118,17 +121,17 @@ function checkNumber(msg) {
         div.textContent = 'GO LOWER';
         
         msgEl.innerHTML = '';
-        msgEl.appendChild(div);
-        
+        msgEl.append(div);
+        return;
     } else {
         const div = document.createElement('div');
         div.textContent = 'GO HIGHER';
-
         msgEl.innerHTML = '';
-        msgEl.appendChild(div);
-
+        msgEl.append(div);
+        return;
     }
 
+}
 
 
 
@@ -145,6 +148,7 @@ const quotes = [
 // store list of words and index of current words
 let words = [];
 let wordIndex = 0;
+let startTime;
  // starting time 
  const quoteElement = document.getElementById('quote');
  const messageElement = document.getElementById('message');
@@ -190,7 +194,7 @@ let wordIndex = 0;
     if (typedValue === currentWord && wordIndex === words.length - 1) {
         // end of quote
         const elapsedTime = new Date().getTime() - startTime;
-        const message = `CONGRATS! You finished in ${elapsedTime / 1000} seconds.`;
+        const message = `CONGRATS! You finished in ${elapsedTime / 1000} seconds. Click on "start" to play again.`;
         messageElement.innerText = message;
     } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
         // end of word
@@ -206,7 +210,7 @@ let wordIndex = 0;
         // highlight the new word
         quoteElement.childNodes[wordIndex].className = 'highlight';
     } else if 
-    (currentWord.StartsWith(typedValue)) {
+    (currentWord.startsWith(typedValue)) {
         // currently correct
         // highlight the next word
         typedValueElement.className = '';
