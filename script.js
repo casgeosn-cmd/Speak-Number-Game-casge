@@ -148,7 +148,7 @@ const quotes = [
     'If I am not for myself, who will be? If I am only for myself, what am I? If not now, when? And if not you, who? - Kwame Ture',
     'To bring about chahnge, you must not be afraid to take the first step. We will fail when we fail to try. - Rosa Parks',
     'I was born free and I am going to live free. - Marsha P. Johnson',
-    'A man who stands for nothing will fall for anything. - Larry Itliong',
+    'A man who stands for nothing will fall for anything. - Malcolm X',
 ];
 
 // store list of words and index of current words
