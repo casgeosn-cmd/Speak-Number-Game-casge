@@ -138,11 +138,16 @@ function checkNumber(msg) {
 
 ///// TYPE GAME SECTION
 const quotes = [
-    'When you have eliminated the impossible, whatever remains, however improbable, must be the truth.',
-    'There is nothing more deceptive than an obvious fact.',
-    'I never make exceptions. An exception disproves the rule.',
-    'You see, but you do not observe. The distinction is clear.',
-    'Education never ends, Watson. It is a series of lessons, with the greatest for the last.',
+    'We cannot solve our problems with the same thinking we used when we created them. - Albert Einstein',
+    'Happiness is not something ready-made. It comes from your own actions. - Dalai Lama',
+    'We are what we repeatedly do. Excellence, then, is not an act, but a habit. - Aristotle',
+    'It does not matter how slowly you go as long as you do not stop. - Confucius', 
+    'A journey of a thousand miles begins with a single step. - Lao Tzu',
+    "There is a higher law than the law of government. That's the law of conscience. - Kwame Ture",
+    'If I am not for myself, who will be? If I am only for myself, what am I? If not now, when? And if not you, who? - Kwame Ture',
+    'To bring about chahnge, you must not be afraid to take the first step. We will fail when we fail to try. - Rosa Parks',
+    'I was born free and I am going to live free. - Marsha P. Johnson',
+    'A man who stands for nothing will fall for anything. - Larry Itliong',
 ];
 
 // store list of words and index of current words
