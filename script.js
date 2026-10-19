@@ -25,6 +25,7 @@ function onSpeak(event) {
     console.log(msg);
     writeMessage(msg);
     checkNumber(msg);
+    return;
 }
 
 // listen to and handle the speech event 
